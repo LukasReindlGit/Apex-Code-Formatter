@@ -1,0 +1,13 @@
+hello=bye
+hello+bye
+hello= bye
+Help==hello
+asdf>=3;
+a,b,c, d;
+a , b;
+(a+b)
+{a=newB()};
+
+List<A>
+List <B>
+List < b >
