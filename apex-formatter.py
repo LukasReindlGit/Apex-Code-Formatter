@@ -12,7 +12,7 @@ def regexSubstitution(line):
     # add spaces around operators
     result = re.sub(r"([\*\/\+\-\=<>|][\+\-\=|]*)", r" \1 ", result);
 
-    # add spaces after comma
+    # add spaces after comma, not before
     result = re.sub(r"\s*,\s*", r", ", result);
 
     # add space after open querly brace
