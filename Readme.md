@@ -19,3 +19,5 @@ and set the apex-formatter.py as formatter for apex in the settings.json:
         }
     ],
 ```
+
+You may need to perform a `chmod +x apex-formatter.py` in order for it to work.
