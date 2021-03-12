@@ -5,6 +5,67 @@ Feel free to adapt it to your needs.
 
 This project is a work in progress solution and can change any time.
 
+## Example
+
+### Before
+```java
+public class MyDummyClass
+{
+    public String hello='I am a teststring';
+
+    public void testMethod(){
+                 Integer a=5;
+  if(a>=14){
+            System.debug('This is a debug meessage');
+        }
+// Comment are ignored a+b=c. still indent though!
+List<B>b=new List<B>{new B(),new B()};
+        Integer manySpaces=  a*  3;
+    
+    B b2= new B(
+        Name='myName'  ,
+Age=14
+  )
+    
+
+    }
+
+
+
+
+        }
+
+```
+
+### After
+
+```java
+public class MyDummyClass
+{
+    public String hello = 'I am a teststring';
+    
+    public void testMethod(){
+        Integer a = 5;
+        if(a >= 14){
+            System.debug('This is a debug meessage');
+        }
+        // Comment are ignored a+b=c. still indent though!
+        List<B> b = new List<B> { new B(), new B() };
+        Integer manySpaces = a * 3;
+        
+        B b2 = new B(
+            Name = 'myName',
+            Age = 14
+        )
+        
+    }
+    
+}
+```
+
+
+
+
 ## Installation
 
 1. move the `apex-formatter.py` file to some location you like. I have mine on `~/.apex-formatter.py`.
