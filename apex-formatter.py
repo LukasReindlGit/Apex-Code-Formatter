@@ -64,11 +64,3 @@ for line in fileinput.input():
     lastline = result;
 
 exit(0)
-
-    # TODO:
-    # - allow to put {,(,[ always on new line
-    # - no empty line over } line
-    
-    # IGNORE:
-    # - All comments (easy hack: if contains // done)
-    # - Inside strings (quick: if ' " ' in line)
