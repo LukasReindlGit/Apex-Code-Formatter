@@ -20,6 +20,8 @@ Age=14
     for(Type type:types){
 if(a!=b){}
 string s='a+b=c';
+
+List<A__c>myVar;
 }
     }
 

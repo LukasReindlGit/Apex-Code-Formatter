@@ -25,12 +25,12 @@ def regexSubstitution(line):
     result = re.sub(r"(\S)\s*}", r"\1 }", result)
 
     # format List<ABC> varName = new List<ABC>()
-    result = re.sub(r"List\s*<\s*([a-z,0-9,A-Z]*)\s*>", r"List<\1>", result)
-    result = re.sub(r"List\s*<\s*([a-z,0-9,A-Z]*)\s*>\s*\(", r"List<\1>(", result)
+    result = re.sub(r"List\s*<\s*([a-z,0-9,A-Z,_]*)\s*>", r"List<\1>", result)
+    result = re.sub(r"List\s*<\s*([a-z,0-9,A-Z,_]*)\s*>\s*\(", r"List<\1>(", result)
 
     # format Map<A,B> varName = new Map<A,B>()
-    result = re.sub(r"Map\s*<\s*([a-z,0-9,A-Z]*),\s*([a-z,0-9,A-Z]*)\s*>", r"Map<\1,\2>", result)
-    result = re.sub(r"Map\s*<\s*([a-z,0-9,A-Z]*),\s*([a-z,0-9,A-Z]*)\s*>\s*\(", r"Map<\1,\2>(", result)
+    result = re.sub(r"Map\s*<\s*([a-z,0-9,A-Z,_]*),\s*([a-z,0-9,A-Z]*)\s*>", r"Map<\1,\2>", result)
+    result = re.sub(r"Map\s*<\s*([a-z,0-9,A-Z,_]*),\s*([a-z,0-9,A-Z]*)\s*>\s*\(", r"Map<\1,\2>(", result)
 
     # format if Block
     result = re.sub(r"(\s)\s*if\s*\(", r"\1if (", result)
