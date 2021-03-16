@@ -84,6 +84,8 @@ public class MyDummyClass{
 
 - Allow to put {,(,[ always on new line
 - No empty line over lines containing only: '}', ')' ');' '),' etc
+- space after 'for' keyword.
+- format 'for' statements. for (int i=0; i<a; i++) and for (Type type : types) 
     
 ### TO IGNORE:
 - Content inside strings (quick: if ' " ' in line)

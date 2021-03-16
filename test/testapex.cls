@@ -8,13 +8,19 @@ public class MyDummyClass{
         }
 // Comment are ignored a+b=c. still indent though!
 List<B>b=new List<B>{new B(),new B()};
+            List<A>a=new List<A>  ();
         Integer manySpaces=  a*  3;
-    
+    Map<A,B>myMap=new Map<A,B>();
     B b2= new B(
         Name='myName'  ,
 Age=14
   )
     
+    for(int i=0;i<5;i++){
+    for(Type type:types){
+
+}
+    }
 
     }
 
