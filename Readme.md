@@ -82,10 +82,15 @@ public class MyDummyClass{
 
 ## TODO
 
+### Critical
+
+### Nice to haves
+
+- Keep content inside strings unchanged
 - Allow to put {,(,[ always on new line
 - No empty line over lines containing only: '}', ')' ');' '),' etc
 - space after 'for' keyword.
 - format 'for' statements. for (int i=0; i<a; i++) and for (Type type : types) 
+- Write string constistently
     
 ### TO IGNORE:
-- Content inside strings (quick: if ' " ' in line)

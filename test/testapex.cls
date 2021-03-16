@@ -18,7 +18,8 @@ Age=14
     
     for(int i=0;i<5;i++){
     for(Type type:types){
-
+if(a!=b){}
+string s='a+b=c';
 }
     }
 

@@ -13,7 +13,7 @@ def regexSubstitution(line):
     result = line
 
     # add spaces around operators
-    result = re.sub(r"([\*\/\+\-\=<>|][\+\-\=|]*)", r" \1 ", result)
+    result = re.sub(r"([\*\/\+\-\=!<>|][\+\-\=|]*)", r" \1 ", result)
 
     # add spaces after comma, not before
     result = re.sub(r"\s*,\s*", r", ", result)
@@ -44,6 +44,11 @@ def regexSubstitution(line):
 for line in fileinput.input():
     # skip comments for now
     if '//' in line:
+        print(" "*indentsteps*current_indent+line.rstrip().lstrip())
+        continue
+
+    # skip strings for now
+    if '\'' in line:
         print(" "*indentsteps*current_indent+line.rstrip().lstrip())
         continue
 
