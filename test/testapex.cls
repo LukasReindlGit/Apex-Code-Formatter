@@ -6,7 +6,9 @@ public class MyDummyClass{
   if(a>=14){
             System.debug('This is a debug meessage');
         }
+
 // Comment are ignored a+b=c. still indent though!
+
 List<B>b=new List<B>{new B(),new B()};
             List<A>a=new List<A>  ();
         Integer manySpaces=  a*  3;
