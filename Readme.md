@@ -93,6 +93,6 @@ public class MyDummyClass{
 - space after 'for' keyword.
 - format 'for' statements. for (int i=0; i<a; i++) and for (Type type : types) 
 - Write string constistently
-- Handle Set<A> like lists
+- Handle a==b?'yes':'no' // space after ?
     
 ### TO IGNORE:

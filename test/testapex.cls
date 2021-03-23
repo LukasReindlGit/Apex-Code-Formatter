@@ -10,6 +10,7 @@ public class MyDummyClass{
 // Comment are ignored a+b=c. still indent though!
 
 List<B>b=new List<B>{new B(),new B()};
+List<B.C>b=new List<B.C>{new B.C(),new B.C()};
             List<A>a=new List<A>  ();
         Integer manySpaces=  a*  3;
     Map<A,B>myMap=new Map<A,B>();
