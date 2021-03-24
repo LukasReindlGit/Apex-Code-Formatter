@@ -25,7 +25,8 @@ def regexSubstitution(line):
     result = re.sub(r"(\S)\s*}", r"\1 }", result)
 
     # format List<ABC> varName = new List<ABC>()
-    result = re.sub(r"List\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>", r"List<\1>", result)
+    result = re.sub(
+        r"List\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>", r"List<\1>", result)
     result = re.sub(
         r"List\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>\s*\(", r"List<\1>(", result)
 
@@ -73,12 +74,20 @@ for line in fileinput.input():
     result = regexSubstitution(line)
 
     # Indentation
-    next_indent += (line.count('{')-line.count('}'))
-    next_indent += (line.count('(')-line.count(')'))
-    next_indent += (line.count('[')-line.count(']'))
+
+    increment = 0
+    increment += (line.count('{')-line.count('}'))
+    increment += (line.count('(')-line.count(')'))
+    increment += (line.count('[')-line.count(']'))
+
+    if increment > 0:
+        next_indent += increment
+    else:
+        current_indent += increment
+        next_indent = current_indent
 
     # Trim whitespaces
-    result = result.rstrip().lstrip()
+    result=result.rstrip().lstrip()
 
     # Skip multi-white-line
     if lastline == "" and result == "":
@@ -90,7 +99,7 @@ for line in fileinput.input():
     else:
         print(" " * indentsteps * (current_indent) + result)
 
-    current_indent = next_indent
-    lastline = result
+    current_indent=next_indent
+    lastline=result
 
 exit(0)
