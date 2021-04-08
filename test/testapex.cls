@@ -36,7 +36,7 @@ new B(
 Name='asdf',
       Age=12
 );
-
+System.debug('hello'+'wo+rld'+' blob');
 
 
         }

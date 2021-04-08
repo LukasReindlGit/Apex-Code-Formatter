@@ -86,8 +86,6 @@ public class MyDummyClass{
 - empty lines after comments are getting removed.
 
 ### Nice to haves
-
-- Keep content inside strings unchanged
 - Allow to put {,(,[ always on new line
 - No empty line over lines containing only: '}', ')' ');' '),' etc
 - space after 'for' keyword.

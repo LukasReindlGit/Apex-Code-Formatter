@@ -49,6 +49,23 @@ def regexSubstitution(line):
 
     return result
 
+def restoreQuoteContent(original, changed):
+    if '\'' not in line:
+        return changed
+
+    splitted_result = changed.split('\'')
+    splitted_original = original.split('\'')
+    tmp = ''
+    for i in range(len(splitted_result)):
+        # if index is even: we are not inside quotes -> use reformatted block
+        if i % 2 == 0:
+            tmp += splitted_result[i]
+        else:
+            tmp += splitted_original[i]
+        # add ' between entries
+        if i < len(splitted_result)-1:
+            tmp += '\''
+    return tmp
 
 for line in fileinput.input():
     # skip comments for now
@@ -63,31 +80,27 @@ for line in fileinput.input():
         print(" "*indentsteps*current_indent+result)
         continue
 
-    # skip strings for now
-    if '\'' in line:
-        result = line.rstrip().lstrip()
-        lastline = result
-        print(" "*indentsteps*current_indent+result)
-        continue
-
     # Perform all regex rules!
     result = regexSubstitution(line)
 
-    # Indentation
+    # override content of quotes with original quote content
+    result = restoreQuoteContent(line, result)
 
-    increment = 0
-    increment += (line.count('{')-line.count('}'))
-    increment += (line.count('(')-line.count(')'))
-    increment += (line.count('[')-line.count(']'))
+    # calculate Indentation (ignore string lines for now)
+    if '\'' not in line:
+        increment = 0
+        increment += (line.count('{')-line.count('}'))
+        increment += (line.count('(')-line.count(')'))
+        increment += (line.count('[')-line.count(']'))
 
-    if increment > 0:
-        next_indent += increment
-    else:
-        current_indent += increment
-        next_indent = current_indent
+        if increment >= 0:
+            next_indent += increment
+        else:
+            current_indent += increment
+            next_indent = current_indent
 
     # Trim whitespaces
-    result=result.rstrip().lstrip()
+    result = result.rstrip().lstrip()
 
     # Skip multi-white-line
     if lastline == "" and result == "":
@@ -99,7 +112,7 @@ for line in fileinput.input():
     else:
         print(" " * indentsteps * (current_indent) + result)
 
-    current_indent=next_indent
-    lastline=result
+    current_indent = next_indent
+    lastline = result
 
 exit(0)
