@@ -37,9 +37,9 @@ def regexSubstitution(line):
 
     # format Map<A,B> varName = new Map<A,B>()
     result = re.sub(
-        r"Map\s*<\s*([a-z,0-9,A-Z,_,\.]*),\s*([a-z,0-9,A-Z,\.]*)\s*>", r"Map<\1,\2>", result)
+        r"Map\s*<\s*([a-z,0-9,A-Z,_,\.]*),\s*([a-z,0-9,A-Z,_,\.]*)\s*>", r"Map<\1,\2>", result)
     result = re.sub(
-        r"Map\s*<\s*([a-z,0-9,A-Z,_,\.]*),\s*([a-z,0-9,A-Z,\.]*)\s*>\s*\(", r"Map<\1,\2>(", result)
+        r"Map\s*<\s*([a-z,0-9,A-Z,_,\.]*),\s*([a-z,0-9,A-Z,_,\.]*)\s*>\s*\(", r"Map<\1,\2>(", result)
 
     # format if Block
     result = re.sub(r"(\s)\s*if\s*\(", r"\1if (", result)
