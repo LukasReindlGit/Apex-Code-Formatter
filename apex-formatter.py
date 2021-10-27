@@ -13,7 +13,7 @@ def regexSubstitution(line):
     result = line
 
     # add spaces around operators
-    result = re.sub(r"([\*\/\+\-\=!<>|][\+\-\=|]*)", r" \1 ", result)
+    result = re.sub(r"([\*\/\+\-\=!<>|][\+\-\=!<>|]*)", r" \1 ", result)
 
     # add spaces after comma, not before
     result = re.sub(r"\s*,\s*", r", ", result)
