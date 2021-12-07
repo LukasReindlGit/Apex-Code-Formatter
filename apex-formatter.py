@@ -47,6 +47,14 @@ def regexSubstitution(line):
     # reduce multiple spaces
     result = (re.sub(r"\s\s*", " ", result))
 
+    # remove space in ( ) and { }
+    result = (re.sub(r"\( \)", "()", result))
+    result = (re.sub(r"\{ }", "{}", result))
+
+    # add space between (){}
+    result = (re.sub(r"\)\{", ") {", result))
+
+
     return result
 
 def restoreQuoteContent(original, changed):
