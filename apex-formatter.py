@@ -94,18 +94,19 @@ for line in fileinput.input():
     # override content of quotes with original quote content
     result = restoreQuoteContent(line, result)
 
-    # calculate Indentation (ignore string lines for now)
-    if '\'' not in line:
-        increment = 0
-        increment += (line.count('{')-line.count('}'))
-        increment += (line.count('(')-line.count(')'))
-        increment += (line.count('[')-line.count(']'))
+    # calculate Indentation (ignore string content)
+    indentationLine = line
+    indentationLine = re.sub(r"'.*?'", r"", indentationLine)
+    increment = 0
+    increment += (indentationLine.count('{')-indentationLine.count('}'))
+    increment += (indentationLine.count('(')-indentationLine.count(')'))
+    increment += (indentationLine.count('[')-indentationLine.count(']'))
 
-        if increment >= 0:
-            next_indent += increment
-        else:
-            current_indent += increment
-            next_indent = current_indent
+    if increment >= 0:
+        next_indent += increment
+    else:
+        current_indent += increment
+        next_indent = current_indent
 
     # Trim whitespaces
     result = result.rstrip().lstrip()
