@@ -61,9 +61,9 @@ Age=14
 public class MyDummyClass{
     public String hello = 'I am a teststring';
     
-    public void testMethod(){
+    public void testMethod() {
         Integer a = 5;
-        if(a >= 14){
+        if (a >= 14) {
             System.debug('This is a debug meessage');
         }
         // Comment are ignored a+b=c. still indent though!
@@ -81,12 +81,12 @@ public class MyDummyClass{
 ```
 
 ## TODO
+- Allow multiline regex
 
 ### Critical
-- empty lines after comments are getting removed.
 
 ### Nice to haves
-- Allow to put {,(,[ always on new line
+- Allow to put {,(,[ always on new line (if wanted)
 - No empty line over lines containing only: '}', ')' ');' '),' etc
 - space after 'for' keyword.
 - format 'for' statements. for (int i=0; i<a; i++) and for (Type type : types) 

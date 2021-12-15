@@ -94,9 +94,10 @@ for line in fileinput.input():
     # override content of quotes with original quote content
     result = restoreQuoteContent(line, result)
 
-    # calculate Indentation (ignore string content)
+    # calculate Indentation (ignore string content and comments)
     indentationLine = line
     indentationLine = re.sub(r"'.*?'", r"", indentationLine)
+    indentationLine = re.sub(r"//.*", r"", indentationLine)
     increment = 0
     increment += (indentationLine.count('{')-indentationLine.count('}'))
     increment += (indentationLine.count('(')-indentationLine.count(')'))
