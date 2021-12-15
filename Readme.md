@@ -82,8 +82,15 @@ public class MyDummyClass{
 
 ## TODO
 
+### Critical
+- empty lines after comments are getting removed.
+
+### Nice to haves
 - Allow to put {,(,[ always on new line
 - No empty line over lines containing only: '}', ')' ');' '),' etc
+- space after 'for' keyword.
+- format 'for' statements. for (int i=0; i<a; i++) and for (Type type : types) 
+- Write string constistently
+- Handle a==b?'yes':'no' // space after ?
     
 ### TO IGNORE:
-- Content inside strings (quick: if ' " ' in line)
