@@ -12,6 +12,7 @@ def regexSubstitution(line):
 
     result = line
 
+
     # add spaces around operators
     result = re.sub(r"([\*\/\+\-\=!<>|][\+\-\=!<>|]*)", r" \1 ", result)
 
@@ -54,6 +55,8 @@ def regexSubstitution(line):
     # add space between (){}
     result = (re.sub(r"\)\{", ") {", result))
 
+    # add Test
+    result = re.sub(r"#TEST", r"@isTest\npublic static void test(){\n\t// Given\n\n\t// When\n\tTest.startTest();\n\tTest.stopTest();\n\n\t// Then\n}", result)
 
     return result
 
