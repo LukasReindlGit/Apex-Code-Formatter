@@ -120,10 +120,17 @@ for line in fileinput.input():
         continue
 
     # Close indentation when closing braces TODO: replace this with regex!
+    toprint = ""
     if result == ")" or result == "}" or result == "]":
-        print(" " * indentsteps * (next_indent) + result)
+        toprint= " " * indentsteps * (next_indent) + result
     else:
-        print(" " * indentsteps * (current_indent) + result)
+        toprint= " " * indentsteps * (current_indent) + result
+    
+    # remove whitespace from empty lines
+    if not result or not result.strip():
+        toprint =""
+
+    print(toprint)
 
     current_indent = next_indent
     lastline = result
