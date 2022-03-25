@@ -37,6 +37,7 @@ Name='asdf',
       Age=12
 );
 System.debug('hello'+'wo+rld'+' blob');
+                List<PricebookEntry> priceBookEntries = [SELECT Id, Name, Product2Id, Product2.ProductCode, UnitPrice FROM PriceBookEntry WHERE Pricebook2Id = : pricebookId];
 
 
         }

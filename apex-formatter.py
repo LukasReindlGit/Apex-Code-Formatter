@@ -8,6 +8,20 @@ indentsteps = 4
 lastline = ""
 
 
+def handleSOQL(line):
+
+    result = line
+    if("[SELECT" in line):
+        result = re.sub(r"\s*,\s*", r",\n", result)
+        result = re.sub(r"SELECT", r"\nSELECT", result)
+        result = re.sub(r"FROM", r"\nFROM", result)
+        result = re.sub(r"WHERE", r"\nWHERE", result)
+        result = re.sub(r"AND", r"\nAND", result)
+        result = re.sub(r"OR", r"\nOR", result)
+        result = re.sub(r"(\w)](.*);", r"\1\n]\2;", result)
+
+    return result
+
 def regexSubstitution(line):
 
     result = line
@@ -93,6 +107,10 @@ for line in fileinput.input():
 
     # Perform all regex rules!
     result = regexSubstitution(line)
+    
+    # Format soql statements
+    result = handleSOQL(result)
+
 
     # override content of quotes with original quote content
     result = restoreQuoteContent(line, result)
