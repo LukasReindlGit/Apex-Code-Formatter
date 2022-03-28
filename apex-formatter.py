@@ -18,6 +18,9 @@ def handleSOQL(line):
         result = re.sub(r"WHERE", r"\nWHERE", result)
         result = re.sub(r"AND", r"\nAND", result)
         result = re.sub(r"OR", r"\nOR", result)
+        result = re.sub(r"LIMIT", r"\nLIMIT", result)
+        result = re.sub(r"ORDER BY", r"\nORDER BY", result)
+        result = re.sub(r"GROUP", r"\nGROUP", result)
         result = re.sub(r"(\w)](.*);", r"\1\n]\2;", result)
 
     return result
