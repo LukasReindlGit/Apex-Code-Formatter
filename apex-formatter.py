@@ -11,6 +11,10 @@ lastline = ""
 def handleSOQL(line):
 
     result = line
+
+    if(len(line)<90):
+        return result
+
     if("[SELECT" in line):
         result = re.sub(r"\s*,\s*", r",\n", result)
         result = re.sub(r"SELECT", r"\nSELECT", result)
@@ -47,6 +51,12 @@ def regexSubstitution(line):
         r"List\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>", r"List<\1>", result)
     result = re.sub(
         r"List\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>\s*\(", r"List<\1>(", result)
+
+    # format Batchable<ABC> varName = new Batchable<ABC>()
+    result = re.sub(
+        r"Batchable\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>", r"Batchable<\1>", result)
+    result = re.sub(
+        r"Batchable\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>\s*\(", r"Batchable<\1>(", result)
 
     # format Set<ABC> varName = new Set<ABC>()
     result = re.sub(r"Set\s*<\s*([a-z,0-9,A-Z,_,\.]*)\s*>", r"Set<\1>", result)
